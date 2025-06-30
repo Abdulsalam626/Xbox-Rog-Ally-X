@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unofficial ROG ALLY X-Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fontawesome.com/icons/sun-bright?f=classic&s=solid">
+    <style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+        
+        /* Base Styles */
+body {
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+        
+header{
+    background-color: black;
+    padding: 15px 20px;
+    font-family: sans-serif;
+    border-bottom: red 3px solid;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+        
+header img{
+    width: 80px;
+    height: auto;
+}
+        
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+        
+nav a{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+}
+        
+nav a:active{
+    opacity: 0.7;
+}
+        
+.links {
+    display: flex;
+    list-style: none;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+        
+.links li a{
+    text-decoration: none;
+    color: #f0f0f0;
+    font-weight: bold;
+    padding: 10px;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+}
+        
+li a:hover{
+    color: #e50000;
+}
+        
+li a:active{
+    opacity: 0.7;
+    text-decoration: none;
+}
+        
+        /* Hamburger Menu Styles */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+}
+        
+.hamburger .line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+        /* Hero Section  */
+.slideshow{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.slideshow-item{
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    opacity: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: slideAnim 20s infinite;
+}
+.slideshow-item:nth-child(1){
+    background-image: url(images/Rog\ Xbox\ Ally.png);
+    animation-delay: 0s;
+}
+.slideshow-item:nth-child(2){
+    background-image: url(images/Rog\ Xbox\ Ally\ X.png);
+    animation-delay: 5s;
+}
+.slideshow-item:nth-child(3){
+    background-image: url(images/Rog\ Xbox\ Ally\ \ back-view.png);
+    animation-delay: 10s;
+}
+.slideshow-item:nth-child(4){
+    background-image: url(images/Rog\ Xbox\ Ally\ X\ back-view.png);
+    animation-delay: 15s;
+}
+@keyframes slideAnim {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    20% { opacity: 1; }
+    30% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+.slideshow-content{
+    background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
+    text-align: center;
+    padding-top: 20vh;
+    z-index: 10;
+    height: 100vh;
+    position: relative;
+}
+.slideshow-content h1{
+    font-size: 4rem;
+    background: linear-gradient(to right, #ffffff, #e50000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+    font-family: tahoma;
+}
+.slideshow-content p{
+    font-size: 1.5rem;
+    color: #aaaaaa;
+    margin: 40px;
+}
+.feature-btn{
+    background-color: red;
+    color: white;
+    padding: 10px 18px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s, opacity 0.3s, font-weight 0.15s;
+}
+.feature-btn:hover{
+    transform: translateX(-12px);
+    font-weight: bolder;
+}
+.feature-btn:active{
+    opacity: 0.7;
+}
+.watch-btn{
+    padding: 10px 18px;
+    background: #e50000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+.watch-btn:hover{
+    transform: translateY(-10px);
+    background-color: transparent;
+    border: 3px #e50000 solid;
+}
+.watch-btn:active{
+    opacity: 0.7;
+}
+.watch-btn i{
+    padding-right: 5px;
+}
+/* Popup Container  */
+.video-popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+        
+/* Video Wrapper */
+.video-wrapper {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+}
+        
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    width: 30px;
+    margin-top: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+        
+.close-btn:hover {
+    color: #ccc;
+}
+/* Video Iframe */
+.video-iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+}
+        
+/* Checkbox Hack */
+#video-toggle {
+    display: none;
+}
+        
+#video-toggle:checked + .video-popup {
+    opacity: 1;
+    pointer-events: all;
+}
+/* Feature Section  */
+.feature-container{
+    background-color: #1a1a1a;
+    padding: 5rem;
+}
+.feature-container h1{
+    font-size: 3rem;
+    text-align: center;
+    font-family: calibri;
+    padding-bottom: 1rem;
+    color: #f0f0f0;
+}
+.feature-container p{
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: Gill Sans;
+    padding-bottom: 5rem;
+    color: #aaaaaa;
+}
+.feature-grid{
+    display: grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.feature-card{
+    border-radius: 10px;
+    background-color: #0c0c0c;
+    padding: 30px;
+    box-shadow: 10px 10px 10px rgba(221, 6, 6, 0.2);
+    transition: transform 0.3s, border-left 0.3s;
+}
+.feature-card:hover{
+    transform: translateX(-12px);
+    border-left: 0.4rem solid red;
+}
+.feature-card i{
+    font-size: 5rem;
+    color: white;
+    margin: 30px;
+}
+.feature-card h3{
+    color: #f0f0f0;
+    font-size: 22px;
+    font-family: sans-serif;
+}
+.feature-card p{
+    text-align: left;
+    font-size: 21px;
+    padding-top: 10px;
+}
+/* Marquee section  */
+.fast-marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-content {
+  display: inline-block;
+  white-space: nowrap;
+  animation: ultraFastScroll 10s linear infinite;
+}
+
+.marquee-content img {
+  height: 100px;
+  margin: 0 20px;
+}
+
+@keyframes ultraFastScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-25%); }
+}
+
+/* Specs Section */
+.spec-container {
+    background-color: #0c0c0c;
+    padding: 2rem 1rem;
+}
+
+.spec-container h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem); /* Responsive font size */
+    font-family: calibri, sans-serif;
+    color: #f0f0f0;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.spec-container p {
+    font-size: clamp(1rem, 3vw, 1.5rem); /* Responsive font size */
+    text-align: center;
+    color: #aaaaaa;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.spec-details {
+    display: flex;
+    flex-direction: column; /* Stack vertically on small screens */
+    align-items: center;
+    gap: 2rem;
+}
+
+.image-card {
+    margin: 2rem 0;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.image-card img {
+    height: auto;
+    width: 80%;
+    max-height: 600px; 
+    border-radius: 15px;
+    transition: transform 0.3s;
+    object-fit: cover;
+}
+
+.image-card img:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3); 
+}
+
+.specs {
+    width: 100%;
+    max-width: 800px;
+    padding: 0 1.5rem;
+    margin: 0 auto;
+}
+
+.specs h4 {
+    color: #f0f0f0;
+    font-size: clamp(1.2rem, 3vw, 1.5rem); /* Responsive font size */
+    font-family: calibri, sans-serif;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.specs h4 i {
+    color: #e50000;
+    font-size: 0.8rem; /* Relative size */
+    margin-right: 0.8rem;
+}
+
+.specs p {
+    font-size: clamp(1rem, 2.5vw, 1.25rem); /* Responsive font size */
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    margin-left: 1.5rem;
+    text-align: left;
+    line-height: 1.5;
+}
+
+/* Disclaimer section  */
+.disclaimer{
+    padding: 5rem;
+}
+.disclaimer h2{
+    font-size: 2.5rem;
+    color: #e50000;
+    font-family: sans-serif;
+} 
+.disclaimer p{
+    color: #aaaaaa;
+    text-align: left;
+    font-size: 1rem;
+    font-family: calibri;
+}
+/* Cta Section  */
+.cta-container{
+    background:linear-gradient(135deg, rgba(229,0,0,0.1), rgba(12,12,12,0.9)),
+    url(images/ROG-RED-WALLPAPER-4K.png);
+    padding: 6rem 1rem;
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.cta-container h1{
+    font-size: 3rem;
+    color: #f0f0f0;
+    font-family: calibri;
+}
+.cta-container p{
+    font-size: 1.5rem;
+    color: #aaaaaa;
+    padding: 1rem;
+}
+.cta-container small{
+    font-size: 1rem;
+    color: #aaaaaa;
+}
+.cta-btn{
+    background-color: red;
+    color: white;
+    padding: 10px 18px;
+    font-size: 18px;
+    margin-top: 2rem;
+    border: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+.cta-btn:hover{
+    background-color: transparent;
+    border: 3px solid #e50000;
+    font-weight: bolder;
+}
+.cta-btn:active{
+    opacity: 0.15;
+}
+/* Footer Section  */
+footer{
+    background-color: #080808;
+    padding: 60px 0 30px;
+    border-top: 1px solid red;
+}
+
+.footer-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30;
+    margin: 30px;
+}
+.footer-column{
+    border-radius: 20px;
+    padding-left: 60px;
+}
+.footer-column h3{
+    font-size: 25px;
+    font-family: calibri;
+    color: #e50000;
+    margin-bottom: 20px;
+}
+.footer-column ul li{
+    padding-bottom: 20px;
+    list-style: none;;
+}
+.footer-column ul li a{
+    text-decoration: none;
+    font-family: calibri;
+    font-size: 20px;
+    color: #aaaaaa;
+}
+.footer-column ul li  a:hover{
+    color: #ffffff;
+}
+.footer-column i{
+    margin-right: 20px;
+    border-radius: 50px;
+    background-color: #f0f0f0;
+    font-size: 20px;
+    padding: 10px;
+    color: #e50000;
+    transition: background-color 0.3s, color 0.3s, tranform 0.3s;
+}
+.footer-column i:hover{
+    background-color: #e50000;
+    color: #f0f0f0;
+    transform: translateY(-5px);
+}
+.copyright{
+    text-align: center;
+    color: #aaaaaa;
+    padding-top: 20px;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    border-top: 1px solid #1a1a1a;
+    font-family: sans-serif;
+}
+/* Medium screens (tablets) */
+@media (min-width: 768px) {
+    .spec-container {
+        padding: 3rem 2rem;
+    }
+    
+    .spec-details {
+        flex-direction: row; /* Side by side on larger screens */
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    
+    .image-card {
+        margin: 2rem;
+        width: 45%;
+    }
+    
+    .specs {
+        width: 50%;
+        padding: 0 2rem;
+    }
+}
+
+/* Large screens (desktops) */
+@media (min-width: 1024px) {
+    .spec-container {
+        padding: 4rem;
+    }
+    
+    .image-card img {
+        max-height: 500px;
+    }
+    
+    .specs {
+        padding: 0 3rem;
+    }
+}
+
+ .hamburger.active .line:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        
+        .hamburger.active .line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active .line:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+        
+        /* Hero Section */
+        .slideshow{
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 500px;
+            overflow: hidden;
+        }
+        
+        /* ... (rest of your existing styles remain the same) ... */
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header img {
+                width: 70px;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: black;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 20px;
+                z-index: 999;
+                border-top: 1px solid red;
+            }
+            
+            .links.active {
+                left: 0;
+            }
+            
+            .links li {
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            .links li a {
+                padding: 15px;
+                display: block;
+            }
+            
+            .slideshow-content {
+                padding-top: 10vh;
+            }
+            
+            .feature-container {
+                padding: 2rem 1rem;
+            }
+            
+            .footer-column {
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            .footer-column ul li {
+                padding-bottom: 10px;
+            }
+            
+            .footer-column i {
+                margin: 5px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header {
+                padding: 10px;
+            }
+            
+            nav {
+                flex-direction: row;
+                align-items: center;
+            }
+            
+            .links {
+                top: 70px;
+                height: calc(100vh - 70px);
+            }
+            
+            .slideshow-content h1 {
+                font-size: 2rem;
+            }
+            
+            .slideshow-content p {
+                font-size: 1rem;
+            }
+            
+            .feature-btn, .watch-btn {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+                margin: 5px;
+            }
+            
+            .marquee-content img {
+                height: 60px;
+                margin: 0 10px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+        
+        /* ... (rest of your existing media queries remain the same) ... */
+    </style>
+</head>
+<body>
+    <!-- Navbar Section -->
+    <header>
+        <img src="images/Rog Logo.png" alt="ROG Logo">
+        <nav>
+            <a href="#">UN-OFFICIAL XBOX</a>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <ul class="links">
+                <li><a href="#feature">FEATURES</a></li>
+                <li><a href="#specs">SPECS</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Hero Section -->
+    <section class="slideshow">
+        <div class="slideshow-item"></div>
+        <div class="slideshow-item"></div>
+        <div class="slideshow-item"></div>
+        <div class="slideshow-item"></div>
+        
+        <div class="slideshow-content">
+            <h1>ROG ALLY X</h1>
+            <p>The ultimate Windows gaming handheld with next-gen performance and stunning 120Hz display</p>
+            <a href="#feature"><button class="feature-btn">EXPLORE FEATURES</button></a>
+            <label for="video-toggle" class="watch-btn"><i class="fa-solid fa-play"></i>WATCH TRAILER</label>
+            
+            <!-- Hidden checkbox controls the popup state -->
+            <input type="checkbox" id="video-toggle">
+            
+            <!-- The popup container -->
+            <div class="video-popup">
+                <div class="video-wrapper">
+                    <!-- Close button (also a label for the checkbox) -->
+                    <label for="video-toggle" class="close-btn"><i class="fa-solid fa-xmark"></i></label>
+                    
+                    <!-- Video iframe - replace with your video URL -->
+                    <iframe class="video-iframe" src="video/Rog Ally X.mp4" 
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="feature-container" id="feature">
+        <h1>POWER RENEFINED</h1>
+        <p>Experience console-quality gaming in the palm of your hand with cutting-edge technology</p>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>AMD Ryzen Z1 Extreme</h3>
+                <p>8-core, 16-thread processor with RDNA 3 graphics for uncompromising performance</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-sun icon" id="brightnessIcon"></i>
+                <h3>120Hz FHD Display</h3>
+                <p>7-inch 1080p touchscreen with 500nit brightness and FreeSync Premium</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-gamepad icon" id="controllerIcon"></i>
+                <h3>Advanced Controls</h3>
+                <p>Hall-effect joysticks, customizable RGB, and ergonomic design for marathon sessions</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Specs Section -->
+    <section class="spec-container" id="specs">
+        <h1>TECHNICAL SPECIFICATIONS</h1>
+        <br>
+        <p>Engineered for gamers who demand the best</p>
+        
+        <!-- Marquee Section -->
+        <div class="fast-marquee">
+            <div class="marquee-content">
+                <img src="images/Rog Xbox Ally X front-view.png" alt="Image 1">
+                <img src="images/Rog Xbox Ally X down-view.png" alt="Image 2">
+                <img src="images/Rog Xbox Ally X side-view.png" alt="Image 3">
+                <img src="images/Rog Xbox Ally X back-view.png" alt="Image 4">
+                <img src="images/Rog Xbox Ally  front-view.png" alt="Image 1">
+                <img src="images/Rog Xbox Ally down-view.png" alt="Image 2">
+                <img src="images/Rog Xbox Ally  side-view.png" alt="Image 3">
+                <img src="images/Rog Xbox Ally  back-view.png" alt="Image 4">
+            </div>
+        </div>
+        
+        <div class="spec-details">
+            <div class="image-card"><img src="images/ROG XBOX ALLY  (2).jpg" alt="Rog Xbox Ally"></div>
+            <div class="specs">
+                <h4><i class="fa-solid fa-square"></i>Processor</h4>
+                <p>AMD Ryzen Z1 Extreme (4nm, up to 5.1GHz)</p>
+                <h4><i class="fa-solid fa-square"></i>Graphics</h4>
+                <p>AMD Radeon RDNA 3 (12 CUs, up to 2.7GHz)</p>
+                <h4><i class="fa-solid fa-square"></i>Memory</h4>
+                <p>16GB LPDDR5 (6400MHz)</p><br>
+                <h4><i class="fa-solid fa-square"></i>Storage</h4>
+                <p>1TB PCIe 4.0 NVMe SSD (user upgradeable)</p>
+                <h4><i class="fa-solid fa-square"></i>Battery</h4>
+                <p>65Wh with 100W fast charging</p>
+            </div>
+        </div>
+        
+        <!-- Disclaimer section -->
+        <div class="disclaimer">
+            <h2>DISCLAIMER</h2>
+            <p>⚠️ This is NOT an official ASUS ROG Ally X or Xbox landing page. </p>
+            <p>This webpage was created for educational purposes only to demonstrate web development skills.</p> 
+            <p>This is:</p>
+            <p> ✅ A personal coding project</p> 
+            <p>✅ A practice exercise in HTML/CSS</p> 
+            <p> ✅ Not affiliated with ASUS, ROG, or Xbox </p>
+            <p>✅ The products/images used are property of their respective owners.</p> 
+            <p>✅ No commercial use intended.</p>
+        </div>
+    </section>
+    
+    <!-- Cta Section -->
+    <section class="cta-container">
+        <h1>Ready to preorder the actual ROG XBOX ALLY X?</h1>
+        <p>This demo is for educational purposes only. Support the real product!</p>
+        <small>Note: You're leaving an educational demo. Xbox has not endorsed this project. Pre-Order on official Xbox site</small><br>
+        <a href="https://www.xbox.com/en-US/handhelds/rog-xbox-ally" target="_blank"><button class="cta-btn">Pre-Order</button></a>
+    </section>
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#">ROG Ally X</a></li>
+                        <li><a href="#">Accessories</a></li>
+                        <li><a href="#">ROG Laptops</a></li>
+                        <li><a href="#">ROG Desktops</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Drivers</a></li>
+                        <li><a href="#">Warranty</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About ASUS</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Investors</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; Olamoyegun Abdulsalam. All right reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.links');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when a link is clicked (for mobile)
+        document.querySelectorAll('.links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
