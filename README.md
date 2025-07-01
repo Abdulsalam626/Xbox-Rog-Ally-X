@@ -3,7 +3,7 @@
 **A high-energy showcase for the ASUS ROG Ally X handheld**  
 *(Unofficial fan project | Web development showcase)*  
 
-[Live Demo](https://abdulsalam626.github.io/Xbox-Rog-Ally-X/)  
+[Live Demo](https://olamoyegunabdulsalam.github.io/Xbox-Rog-Ally-X/)  
 
 
 ## 🔥 Features That Pop!
