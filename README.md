@@ -1,5 +1,7 @@
 # Xbox-Rog-Ally-X
-This is an unofficial landing page for the ASUS ROG ALLY X gaming handheld, created purely for educational purposes to demonstrate web development skills. The page features:
+This is an unofficial landing page for the ASUS ROG ALLY X gaming handheld, created purely for educational purposes to demonstrate web development skills. 
+
+The page features:
 
 Responsive design that works on all device sizes
 
@@ -12,6 +14,7 @@ Technical specifications display
 Mobile-friendly hamburger menu
 
 Video popup functionality
+
 
 Disclaimer
 ⚠️ This is NOT an official ASUS ROG Ally X or Xbox landing page.
@@ -27,6 +30,8 @@ CSS animations and transitions
 JavaScript interactivity
 
 All product images and names are property of their respective owners (ASUS, ROG, Xbox).
+
+View the weblive: https://abdulsalam626.github.io/Xbox-Rog-Ally-X/
 
 Features
 Fully Responsive: Adapts to all screen sizes from desktop to mobile
@@ -68,6 +73,7 @@ Features section with interactive cards
 Technical specifications
 
 Call-to-action section
+
 
 
 Acknowledgments:
